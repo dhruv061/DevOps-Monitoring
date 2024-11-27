@@ -4,7 +4,7 @@
 PROMTAIL_CONFIG="/etc/promtail-local-config.yaml"
 
 # Path to the unified log file where script activity will be recorded
-LOG_FILE="/home/ubuntu/Promtail_Info/update_promtail_config-log.log"
+LOG_FILE="/home/ubuntu/monitoring/update_promtail_config-log.log"
 
 # Create the log file if it doesn't exist
 if [ ! -f "$LOG_FILE" ]; then
@@ -56,7 +56,10 @@ EOF
     # Optionally, reload Promtail after appending
     sudo systemctl restart promtail  
     log_action "$process_name - restarted Promtail."
-  fissss
+
+    # Add separator after each block
+    echo "-----------------------------------" >> "$LOG_FILE"
+  fi
 }
 
 # Fetch the current process details using pm2 and append their logs if not already present
