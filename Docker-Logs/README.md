@@ -34,7 +34,8 @@ clients:
 **Note:**
 - Change `<LOKI_ID>` with your actual Loki ID
 
-![Simple Docker Logs Dashboard][IMG-1]
+![image](https://github.com/user-attachments/assets/5fe17d7b-6c72-473c-bc43-2209b94dcc1f)
+
 
 ### 4. Multi-environment-Docker-Logs-Grafana-Dashboard.json
 - Grafana dashboard that shows all container logs based on environment
@@ -46,7 +47,4 @@ clients:
 **Note:**
 - Change `<LOKI_ID>` with your actual Loki ID
 
-![Multi-Environment Docker Logs Dashboard][IMG-2]
-
-[IMG-1]: ./images/simple-docker-logs-dashboard.png
-[IMG-2]: ./images/multi-environment-docker-logs-dashboard.png
+![image](https://github.com/user-attachments/assets/9e9e4ac6-b009-4523-82f5-11bc96f94dfe)
