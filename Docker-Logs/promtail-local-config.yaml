@@ -1,0 +1,27 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /data/loki/positions.yaml
+
+clients:
+  - url: https://<LOKI_ENDPOINT>/api/v1/push
+
+scrape_configs:
+  - job_name: 'docker'
+    docker_sd_configs:
+      - host: "unix:///var/run/docker.sock"
+        refresh_interval: 3s
+    relabel_configs:
+      - source_labels: [__meta_docker_container_name]
+        target_label: container_name
+      - source_labels: [__meta_docker_container_id]
+        target_label: container_id
+      - source_labels: [__meta_docker_container_image]
+        target_label: container_image
+      # Add custom labels here
+      # For multi-enviroment docker logs use "target_label" as "environment" only because it's maange in dashbord.
+      # For "replacement" you can anything you want.
+      - target_label: environment
+        replacement: stag
